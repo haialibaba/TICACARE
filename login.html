@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+</head>
+
+<body class="">
+    <div class="container">
+        <div class="primary-bg">
+            <div class="box signin">
+                <h2>Already Have an Account?</h2>
+                <button class="signinBtn">Sign in</button>
+            </div>
+
+            <div class="box signup">
+                <h2>Don't Have an Account?</h2>
+                <button class="signupBtn">Sign up</button>
+            </div>
+        </div>
+        <div class="formBx">
+            <div class="form signinForm">
+                <div id="login-form" action="" method="post" enctype="multipart/form-data">
+                    <h3>Sign In</h3>
+                    <div class="form-group">
+                        <input name="username" id="user-name" type="text" placeholder="Username">
+                        <span class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <input name="userpassword" id="user-password" type="password" placeholder="Password">
+                        <span class="form-message"></span>
+                    </div>
+                    <p class="forgot" onclick="showModalAdd()">Forgot Password</p>
+
+                    <div class="form-group">
+                        <input type="submit" class="form-submit login-btn" value="Submit" id="submit-login">
+                    </div>
+
+
+
+                    <div class="auth-form__social">
+                        <span class="auth-form__social--title">Login with social: </span>
+                        <a href="" class="auth-form__social--facebook btn btn--size-s btn--with-icon">
+                            <i class="auth-form__social--icon fab fa-facebook-square"></i>
+                        </a>
+
+                        <a href="" class=" auth-form__social--google btn btn--size-s btn--with-icon">
+                            <i class=" auth-form__social--icon fab fa-google"></i>
+                        </a>
+
+                        <a href="" class=" auth-form__social--github btn btn--size-s btn--with-icon">
+                            <i class=" auth-form__social--icon fab fa-github"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form signupForm">
+                <div id='formRegister' action="" method="POST" enctype="multipart/form-data">
+                    <h3>Sign Up</h3>
+                    <div class="form-group invalid">
+                        <input name="newusername" id="new-user-account" type="text" placeholder="Account">
+                        <span id="errolUserName" class="form-message"></span>
+                    </div>
+
+                    <div class="form-group invalid">
+                        <input name="newuseremail" id="new-user-email" type="text" placeholder="Email">
+                        <span id="errolEmail" class="form-message"></span>
+                    </div>
+                    <div class="form-group invalid">
+                        <input name="newusername" id="new-user-name" type="text" placeholder="Name">
+                        <span id="errolEmail" class="form-message"></span>
+                    </div>
+                    <div class="form-group invalid">
+                        <input name="newuserphone" id="new-user-phone" type="text" placeholder="Phone">
+                        <span id="errolEmail" class="form-message"></span>
+                    </div>
+                    <div class="form-group invalid">
+                        <input name="newuserpassword" id="new-user-password" type="password" placeholder="Password"
+                            aria-autocomplete="list">
+                        <span id="errolPassword" class="form-message"></span>
+                    </div>
+                    <div class="form-group invalid">
+                        <input name="confirmuserpassword" id="confirm-user-password" type="password"
+                            placeholder="Confirm Password" required>
+                        <span id="errolConfirmPassword" class="form-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="signup" class="form-submit" id="register" value="Register">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <input type="hidden" name="action" value="changepass">
+        <div class="modal__add-forgetPass " style="display: none;">
+            <div class="modal__add-forgetPass-overlay" onclick="hideModalAdd();"></div>
+            <div class="modal__add-forgetPass-content">
+                <div class="modal__add-product-header">
+                    <p class="modal__add-product-header-heading">Forget Pass</p>
+                </div>
+                <div class="modal__add-User-email"><input type="text" name="txtadminpass" id="txtadminuser" placeholder="Your Email"></div>
+                <div class="modal__add-product-btn" id="btnuserAdd" style="display: block;"><button type="submit">Confirm</button></div>
+                <div class="modal__add-product-btn-close" onclick="hideModalAdd();">
+                    <i class="fas fa-window-close"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/info.js" type="module"></script>
+
+    <script type="text/javascript">
+        const signinBtn = document.querySelector('.signinBtn')
+        // const submitBtn = document.querySelector('.form-submit')
+        const signupBtn = document.querySelector('.signupBtn')
+        const formBx = document.querySelector('.formBx')
+        const body = document.querySelector('body')
+
+        signupBtn.onclick = function () {
+            formBx.classList.add('active')
+            body.classList.add('active')
+        }
+        signinBtn.onclick = function () {
+            formBx.classList.remove('active')
+            body.classList.remove('active')
+        }
+
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+        window.location.href = "index.html"; // Điều hướng người dùng đến trang bảo mật nếu họ đã đăng nhập.
+        }
+
+        
+        function showModalAdd()
+                {
+                    document.querySelector('.modal__add-forgetPass').style.display = "block";
+                }
+                function hideModalAdd()
+                {
+                    document.querySelector('.modal__add-forgetPass').style.display = "none";
+                }
+
+
+
+    </script>
+
+</body>
+
+</html>

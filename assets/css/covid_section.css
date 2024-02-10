@@ -1,0 +1,413 @@
+* {
+    /* scroll-behavior: smooth; */
+    margin: 0%;
+    padding: 0%;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+  }
+  #banner {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-image: url(/assets/img/covidSectionTop.jpeg);
+    background-size: cover;
+    font-weight: bold;
+    color: white;
+    padding: 1rem 3rem;
+  }
+  @media only screen and (max-width: 500px) {
+    #banner {
+      background-image: url(/assets/img/covidSectionTop2nd.jpeg);
+    }
+  }
+  .tips-head {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--bg-color);
+  }
+  #tips {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+  }
+  
+  #tips .box {
+    position: absolute;
+    width: 80%;
+    height: 70vh;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    color: white;
+  }
+  .box button{
+    background-color: #232427;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 15px;
+    opacity: 0.5;
+    z-index: -1;
+    border-radius: 13px;
+    color: white;
+  }
+  .box1 button{
+    left: 13%;
+    transform: translate(-13%);
+  }
+  .box3 button{
+    right: 13%;
+    transform: translate(13%);
+  }
+  .box.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .box.active button{
+    display: none;
+  }
+  .box:hover {
+    z-index: 2;
+  }
+  
+  .box1 {
+    background-image: url(/assets/img/mask.jpg);
+    background-size: cover;
+    clip-path: polygon(0 0, 33% 0, 33% 100%, 0 100%);
+  }
+  .box2 {
+    background-image: url(/assets/img/wash.png);
+    background-size: cover;
+    clip-path: polygon(33% 0, 67% 0, 67% 100%, 33% 100%);
+  }
+  .box3 {
+    background-image: url(/assets/img/handsenetizer.jpg);
+    background-size: cover;
+    clip-path: polygon(67% 0, 100% 0, 100% 100%, 67% 100%);
+  }
+  
+  @media screen and (max-width: 900px){
+    .box1 {
+      clip-path: polygon(0 0, 100% 0, 100% 33%, 0% 33%);
+    }
+    .box2 {
+      clip-path: polygon(0% 33%, 100% 33%, 100% 67%, 0% 67%);
+    }
+    .box3 {
+      clip-path: polygon(0% 67%, 100% 67%, 100% 100%, 0% 100%);
+    }
+    .box button{
+      padding: 10px;
+    }
+    .box1 button{
+      left: 50%;
+      top: 13%;
+      transform: translate(-50% , -13%);
+    }
+    .box3 button{
+      right: 50%;
+      bottom: 13%;
+      transform: translate(50% , 13%);
+    }
+  }
+  
+  .content {
+    background-color: #232427;
+    padding: 20px;
+    margin: 20px;
+    z-index: 1;
+    opacity: 0;
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .box.active .content {
+    opacity: 1;
+    content: none;
+  }
+  
+  .box.active 
+  .content h2 {
+    color: white;
+  }
+  #symptoms {
+    height: auto;
+    padding: 5rem 0;
+    background-color: #232427;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .sym-card,
+  .sts-card {
+    position: relative;
+    min-width: 300px;
+    height: 20rem;
+    margin: 1rem;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+      inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+      5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+  }
+  .sym-card .sym-box,
+  .sts-box {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background-color: #2a2b2f;
+    border: 2px solid #1e1f23;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+  }
+  .sym-content {
+    color: white;
+    padding: 1rem 2rem;
+  }
+  .sym-content h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #93d8e9;
+  }
+  .sym-content ul li {
+    list-style-type: circle;
+  }
+  .sym-card .sym-box:hover {
+    transform: scale(1.15);
+    background-color: #93d8e9;
+  }
+  .sym-card .sym-box:hover .sym-content {
+    color: #181818;
+  }
+  .sym-card .sym-box:hover .sym-content h2 {
+    color: #181818;
+  }
+  #dos {
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--bg-color);
+  }
+  #dos > * {
+    width: 40%;
+    background-color: #93d8e9;
+    padding: 1rem;
+    margin: 2rem;
+  }
+  #dos > * ul {
+    font-size: 1.25rem;
+  }
+  .dos img {
+    filter: invert(14%) sepia(99%) saturate(5794%) hue-rotate(92deg)
+      brightness(93%) contrast(102%);
+    min-width: 30px;
+  }
+  .donts img {
+    filter: invert(7%) sepia(94%) saturate(6430%) hue-rotate(1deg) brightness(85%)
+      contrast(107%);
+    min-width: 20px;
+  }
+  @media only screen and (max-width: 1160px) {
+    #dos {
+      flex-direction: column;
+    }
+    #dos > * {
+      width: 50%;
+      margin: 2rem;
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    #dos > * {
+      width: 90%;
+      margin: 2rem;
+    }
+  }
+  #stats {
+    padding: 5rem 0;
+    height: 140vh;
+    background-color: #232427;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .sts-card {
+    width: 90%;
+    height: 100%;
+  }
+  .sts-box {
+    display: flex;
+    padding: 1rem 0;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .sts-box hr {
+    border-top: 2px solid rgb(73, 73, 73);
+    width: 100%;
+  }
+  .country,
+  .world {
+    width: 100%;
+  }
+  
+  .world,
+  .country {
+    padding: 0 1rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .world {
+    height: auto;
+  }
+  .country {
+    border-radius: 0 15px 15px 0;
+  }
+  #selectCountry {
+    appearance: none;
+    outline: none;
+    width: 100%;
+    margin:7px 0px 23px 0px;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  }
+  .numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+    grid-template-areas: "cases rec dths perc";
+  }
+  
+  .numbers i {
+    font-size: 2.5rem;
+  }
+  .numbers h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .w-cases {
+    width: 80%;
+    grid-area: cases;
+  
+    padding: 0.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .w-cases i {
+    color: #38d1f7;
+  }
+  .w-recovered {
+    width: 80%;
+    grid-area: rec;
+  
+    padding: 0.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .w-recovered i {
+    color: #25d102;
+  }
+  .w-deaths {
+    grid-area: dths;
+    width: 80%;
+  
+    padding: 0.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .w-deaths i {
+    color: #ff0000;
+  }
+  .w-perc {
+    width: 80%;
+    grid-area: perc;
+    padding: 0.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .w-perc i {
+    color: #9d3bff;
+  }
+  @media only screen and (max-width: 800px) {
+    #stats {
+      height: 260vh;
+    }
+    .world {
+      height: auto;
+      margin-top: 20px;
+    }
+    .country {
+      border-radius: 0 15px 15px 0;
+      margin-bottom: 20px;
+    }
+    .country {
+      border-radius: 0;
+    }
+    .numbers {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "cases"
+        "rec"
+        "dths"
+        "perc";
+    }
+  }
+  #blog {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+  }
+  #blog button {
+    background-color: #232427;
+    color: white;
+  }
+  #blog button:hover {
+    background-color: #93d8e9;
+  }

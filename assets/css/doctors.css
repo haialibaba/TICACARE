@@ -1,0 +1,163 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#doctors {
+    margin-top: 100px;
+}
+
+.doctors {
+    padding: 60px 0px;
+    overflow: hidden;
+}
+
+.container .list-doctors {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-panel {
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+
+}
+
+.left-panel h3 {
+    text-align: center;
+}
+
+.right-panel {
+    flex: 2;
+    padding: 20px;
+    background-color: white;
+    flex-direction: column;
+}
+
+#search-box {
+    border: 1px solid #dddd;
+    border-radius: 10px;
+    width: 25%;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.khoa-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.left-panel .khoa-list li {
+    cursor: pointer;
+    padding: 10px;
+    background-color: white;
+    border-right: 2px solid #dddd;
+    text-align: left !important;
+    align-items: center;
+    font-size: 17px;
+
+}
+
+.show {
+    border-right: 2px solid cornflowerblue !important;
+    color: cornflowerblue;
+    font-weight: bold;
+}
+
+.khoa-list li:hover {
+    color: cornflowerblue;
+}
+
+.khoa-list li:first-child {
+    margin-top: 0;
+}
+
+.khoa-list li:last-child {
+    margin-bottom: 0;
+}
+
+#doctor-list .doctor-button {
+    padding: 10px;
+    margin: 5px;
+    background-color: #fff;
+    display: flex;
+    width: 100%;
+    text-align: left;
+    color: black;
+    border-radius: 0;
+}
+
+.doctor-button .col-lg-6 {
+    width: 100%;
+}
+
+.department-name {
+    display: flex;
+    flex-direction: row;
+}
+
+.department-name h3 {
+    width: 50%;
+}
+
+#doctor-list .member {
+    width: 100%;
+}
+
+.black-line {
+    border-bottom: 1px solid #dddd;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#doctor-list .col-lg-6:hover {
+    border: 1px solid #dddd;
+    border-radius: 10px;
+}
+
+#pagination {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+#pagination li {
+    margin-right: 5px;
+    padding: 5px;
+    cursor: pointer;
+    color: black;
+    border: 1px solid #dddd;
+    border-radius: 5px;
+}
+#pagination li:hover{
+    color: #fff;
+    border-color: black;
+    background-color: cornflowerblue;
+}
+.page-act{
+    color: cornflowerblue !important;
+    font-weight: bold;
+    font-size: 20px;
+    border-color: black !important;
+
+}
+.page-act:hover{
+    color: white !important;
+    
+}
+
+#button-show-list{
+    border: none;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: royalblue;
+}
+#button-show-list a{
+    color: #fff;
+
+}

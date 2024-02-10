@@ -1,0 +1,17 @@
+#Datehandle {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%; /* Đặt chiều rộng của nút là 50% để nó hiển thị giữa form */
+    margin: 0 auto; /* Canh giữa theo chiều ngang */
+    display: block; /* Đảm bảo nút hiển thị trên một dòng riêng biệt */
+    box-sizing: border-box; /* Để padding không làm tăng kích thước của nút */
+}
+
+#Datehandle:hover {
+    background-color: #0056b3;
+}

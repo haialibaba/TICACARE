@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&display=swap");
+
+
+/* Calorie calculator starts*/
+#body-background {
+  height: 150vh;
+  background: url(/assets/img/calorie-bg.png) fixed no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Baloo Bhaijaan 2", cursive;
+}
+
+#calorie-form {
+  height: 650px;
+  width: 600px;
+  padding: 0 22px;
+  border-radius: 22px;
+  backdrop-filter: blur(20px);
+  background: rgb(155 155 155 / 10%);
+  box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-control {
+  font-size: 22px !important;
+}
+
+button#submit {
+  width: 100%;
+  font-size: 22px;
+  background-color: #fdcf14;
+}
+
+button#submit:hover {
+  background-color: #edbe00;
+}
+
+#calorie-output {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#calorie-output > p {
+  font-size: 24px;
+}
+
+@media screen and (max-width: 991px) {
+  #calorie-form {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .form-control {
+    font-size: 18px !important;
+  }
+  #calorie-form {
+    width: 90%;
+  }
+  button#submit {
+    font-size: 20px;
+  }
+  #calorie-output > h2 {
+    font-size: 26px;
+  }
+  #calorie-output > p {
+    font-size: 22px;
+  }
+}
+/* Calorie calculator ends */
+

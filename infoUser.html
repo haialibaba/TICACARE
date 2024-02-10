@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/info.css">
+    <link rel="stylesheet" href="assets/css/medicine.css">
+    <title>Thông tin cá nhân</title>
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <a href="index.html">Quay lại</a>
+    <div class="container">
+        <div class="pageInfo">
+            <div class="infoImg" id="infoImg">
+                <img src="assets/img/doctors/doctors-1.jpg" alt="">
+            </div>
+            <div id="infoUser" class="infoUser">
+
+            </div>
+            <div id="infoContent" class="infoContent">
+                <h3>Hồ sơ bệnh án</h3>
+                <div class="navbarInfo">
+                    <h2 id="chuaco" class="active">Chưa có đơn thuốc</h2>
+                    <h2 id="daco">Đã có đơn  thuốc</h2>
+                </div>
+
+                <ul id="medicalrecords" class="medicalrecords">
+
+                </ul>
+            </div>
+        </div>
+    </div> 
+    <div id="overlayPassForm" class="overlayPassForm">
+        <div id="formContainer" class="form-container">
+            <span class="close" id="closeButtonPassForm">&times;</span>
+            <div class="form-title">
+                <div class="title">
+                    Đổi mật khẩu
+                </div>
+                <div class="cap">Đổi mật khẩu tài khoản của bạn</div>
+            </div>
+            <form class="mb-3 container-form" id="">
+                <label for="current-password">Mật khẩu cũ:</label>
+                <input type="password" id="current-password" name="current-password" required>
+
+                <label for="new-password">Mật khẩu mới:</label>
+                <input type="password" id="new-password" name="new-password" required>
+
+                <label for="confirm-password">Xác nhận mật khẩu mới:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+
+                
+            </form>
+            <div class="button-update">
+                <input type="submit" id="update-password" value="Cập nhật">
+            </div>
+           
+        </div>
+    </div>
+    <div id="overlayForm" class="overlayForm">
+        <div id="formContainer" class="form-container">
+            <span class="close" id="closeButtonForm">&times;</span>
+            <div class="form-title">
+                <div class="title">
+                    Thay đổi thông tin
+                </div>
+                <div class="cap">Thay đổi thông tin cá nhân của bạn</div>
+            </div>
+            <form class="mb-3 container-form" id="">
+                <div id="form-updata-user" method="POST" action="POST" enctype="multipart/form-data">
+
+                </div>
+            </form>
+            <div class="button-update">
+                <input type="submit" id="submit-Update" value="Update">
+            </div>
+        </div>
+    </div>
+    <div id="overlay" class="overlay">
+        <div id="formContainer" class="form-container">
+            <span class="close" id="closeButton">&times;</span>
+            <div class="form-title">
+                <div class="title">
+                    Đơn thuốc
+                </div>
+                <div class="cap">Thuốc bác sĩ khuyên dùng cho tình trạng của bạn</div>
+            </div>
+            <form class="mb-3 container-form" id="container-form">
+                
+
+            </form>
+            <button type="submit" class="btn btn-primary btn-block mb-3" id="accept">
+                Chấp nhận đơn thuốc
+            </button>
+        </div>
+    </div>
+
+    <div id="overlay1" class="overlay">
+        <div id="formContainer" class="form-container">
+            <span class="close" id="closeButton1">&times;</span>
+            <div class="form-title">
+                <div class="title">
+                    Đánh giá
+                </div>
+                <div class="cap">Hãy cho đánh giá về bác sĩ</div>
+            </div>
+            <form class="mb-3 container-form" id="doctorReviewForm">
+                <div class="rating-container">
+                    <div class="stars">
+                        <input type="radio" id="star5" name="rating" value="5" class="star-input">
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4" class="star-input">
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3" class="star-input">
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2" class="star-input">
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1" class="star-input">
+                        <label for="star1">★</label>
+                    </div>
+                </div>
+
+                <label for="reviewText">Đánh Giá:</label>
+                <textarea id="reviewText" name="reviewText" rows="4" placeholder="Nhập đánh giá của bạn..."></textarea>
+
+                <button type="button" id="ReviewBtn">Gửi Đánh Giá</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="assets/js/update.js" type="module"></script>
+<script src="assets/js/seeprescription.js" type="module"></script>
+
+<script>
+    const closeButtonForm = document.getElementById("closeButtonForm");
+    const closeButtonPassForm = document.getElementById("closeButtonPassForm");
+    const overlayForm = document.getElementById("overlayForm");
+    const overlayPassForm = document.getElementById("overlayPassForm");
+    const overlay = document.getElementById("overlay");
+    ///Xử lý click đóng form đơn thuốc
+    closeButtonForm.addEventListener("click", function () {
+        overlayForm.style.display = "none";
+        console.log("click")
+    });
+    closeButtonPassForm.addEventListener("click", function () {
+        overlayPassForm.style.display = "none";
+        console.log("click")
+    });
+    ///Xử lý click ngoài đơn thuốc
+    overlayForm.addEventListener("click", function (e) {
+        if (e.target === overlayForm) {
+            overlayForm.style.display = "none";
+        }
+    });
+    overlayPassForm.addEventListener("click", function (e) {
+        if (e.target === overlayPassForm) {
+            overlayPassForm.style.display = "none";
+        }
+    });
+    // function toggleDiv() {
+    //     var div = document.querySelector("#id-form");
+    //     div.classList.toggle("form-container");
+    // }
+    // function togglePass() {
+    //     var pass = document.querySelector("#id-pass");
+    //     pass.classList.toggle("password-form");
+    // }
+    // var closeIcon = document.querySelector(".close-icon");
+    // closeIcon.addEventListener("click", toggleDiv);
+    // var closePass = document.querySelector(".close-pass");
+    // closePass.addEventListener("click", togglePass);
+    // function toggleDiv() {
+    //     var formContainer = document.getElementById("id-form");
+    //     formContainer.classList.toggle("active");
+    // }
+    // function togglePass() {
+    //     var formPass = document.getElementById("id-pass");
+    //     formPass.classList.toggle("active");
+    // }
+    function handleFileInputChange(input) {
+
+  chooseFile(input.files[0]);
+}
+
+function chooseFile(file) {
+  if (file) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $("#imginfo").attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(file);
+  }
+}
+
+   
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script src="https://raw.githubusercontent.com/rndme/download/v4.4.3/download.js"></script>
+
+

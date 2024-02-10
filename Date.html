@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/info.css">
+    <link rel="stylesheet" href="assets/css/medicine.css">
+    <link rel="stylesheet" href="assets/css/Date.css">
+    <title>Xem lịch hẹn</title>
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <a href="index.html">Quay lại</a>
+    <div class="container">
+        <div class="pageInfo">
+            <div class="infoImg" id="infoImg">
+                <img src="assets/img/doctors/doctors-1.jpg" alt="">
+            </div>
+            <div id="infoDoctor" class="infoDoctor">
+
+            </div>
+            <div id="infoContent" class="infoContent">
+                <h3>Xem lịch hẹn</h3>
+                <div class="navbarInfo">
+                    <h2 id="chuaco" class="active">Chưa xử lý</h2>
+                    <h2 id="daco">Lịch sử</h2>
+                </div>
+                <ul id="Date" class="medicalrecords">
+
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <div id="overlay" class="overlay">
+        <div id="formContainer" class="form-container">
+            <span class="close" id="closeButton">&times;</span>
+            <div class="form-title">
+                <div class="title">
+                    Chi tiết
+                </div>
+                <div class="cap">Chi tiết lịch hẹn</div>
+            </div>
+            <form class="mb-3 container-form" id="container-form">
+                
+
+            </form>
+            <button type="submit" class="btn btn-primary btn-block mb-3" id="Datehandle">
+                Xử lý
+            </button>
+            
+        </div>
+    </div>
+</body>
+<script src="assets/js/Date.js" type="module"></script>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script src="https://raw.githubusercontent.com/rndme/download/v4.4.3/download.js"></script>

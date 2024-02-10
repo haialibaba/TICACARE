@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/info.css">
+    <link rel="stylesheet" href="assets/css/medicine.css">
+    <title>Xem hồ sơ bệnh án</title>
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <a href="index.html">Quay lại</a>
+    <div class="container">
+
+        <div class="pageInfo">
+            <div class="infoImg" id="infoImg">
+                <img src="assets/img/doctors/doctors-1.jpg" alt="">
+            </div>
+            <div id="infoDoctor" class="infoDoctor">
+
+            </div>
+            <div id="infoContent" class="infoContent">
+                <h3>Hồ sơ bệnh án</h3>
+                <div class="navbarInfo">
+                    <h2 id="chuaco" class="active">Chưa có đơn thuốc</h2>
+                    <h2 id="daco">Đã có đơn  thuốc</h2>
+                </div>
+                <ul id="medicalrecords" class="medicalrecords">
+
+                </ul>
+            </div>
+        </div>
+        <div class="form-container1" id="id-form">
+            <div class="close-container">
+                <span class="close-icon">&#x2716;</span>
+            </div>
+            <div id="form-updata-user" method="POST" action="POST" enctype="multipart/form-data">
+
+            </div>
+            <div>
+                <input type="submit" id="submit-Update" value="Update">
+            </div>
+        </div>
+        <div class="form-container1" id="id-form">
+            <div class="close-container">
+                <span class="close-icon">&#x2716;</span>
+            </div>
+            <div id="form-updata-user" method="POST" action="POST" enctype="multipart/form-data">
+
+            </div>
+            <div>
+                <input type="submit" id="submit-Update" value="Update">
+            </div>
+        </div>
+        
+    </div>
+    
+    <div id="overlayForm" class="overlayForm">
+        <div id="formContainer" class="form-container">
+            <span class="close" id="closeButtonForm">&times;</span>
+            <div class="form-title">
+                <div class="title">
+                    Tạo hồ sơ bệnh án
+                </div>
+                <div class="cap">Hồ sơ bệnh án dành cho bệnh nhân</div>
+            </div>
+            <form class="mb-3 container-form" id="">
+                <div class="form">
+                    <label for="current-password">ID Bác sĩ:
+                        <span id="doctor_id"></span>
+                    </label>
+                    <label for="current-password">ID Khách hàng:</label>
+                    <select id="id_user"></select>
+                    <!-- <input type="text" id="id_user"> -->
+                    <label for="current-password">Loại bệnh:</label>
+                    <input type="text" id="type_issue">
+        
+                    <label for="new-password">Chẩn đoán:</label>
+                    <input type="text" id="condition">
+        
+                    <label for="confirm-password">Thời gian tạo:</label>
+                    <input type="datetime-local" name="date" class="form-control datepicker" id="date"
+                        placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+        
+                    <input type="submit" id="Create-MR" value="Tạo">
+                </div>
+
+            </form>
+            
+        </div>
+    </div>
+    <div id="overlay" class="overlay">
+        <div id="formContainer" class="form-container">
+            <span class="close" id="closeButton">&times;</span>
+            <div class="form-title">
+                <div class="title">
+                    Đơn thuốc
+                </div>
+                <div class="cap">Thuốc bác sĩ khuyên dùng cho tình trạng của bạn</div>
+            </div>
+            <form class="mb-3 container-form" id="container-form">
+                
+
+            </form>
+            <button type="submit" class="btn btn-primary btn-block mb-3" id="mediSup">
+                Cấp thuốc
+            </button>
+        </div>
+    </div>
+    
+</body>
+
+</html>
+<script src="assets/js/medicalrecord.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+    const closeButtonForm = document.getElementById("closeButtonForm");
+    const overlayForm = document.getElementById("overlayForm");
+    const overlay = document.getElementById("overlay");
+    ///Xử lý click đóng form đơn thuốc
+    closeButtonForm.addEventListener("click", function () {
+            overlayForm.style.display = "none";
+
+    });
+    ///Xử lý click ngoài đơn thuốc
+    overlayForm.addEventListener("click", function (e) {
+        if (e.target === overlayForm) {
+            overlayForm.style.display = "none";
+        }
+    });
+    function togglePass() {
+        overlayForm.style.display = "block";
+        const IDdoctor = JSON.parse(localStorage.getItem('loggedInDoctor')).id;
+        document.getElementById('doctor_id').innerHTML = IDdoctor;
+        const Create_MR = document.getElementById('Create-MR');
+        Create_MR.addEventListener('click', () => {
+            const userid = document.getElementById('id_user').value;
+            const type_issue = document.getElementById('type_issue').value;
+            const condition = document.getElementById('condition').value;
+            const date = document.getElementById('date').value;
+
+            const Medicine_record = {
+                doctorid: IDdoctor,
+                userid: userid,
+                type_issue: type_issue,
+                condition: condition,
+                date: date
+            };
+            localStorage.setItem('Medicine_record', JSON.stringify(Medicine_record));
+            formPass.classList.toggle("active");
+        })
+
+    }
+
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<!-- <script src="https://raw.githubusercontent.com/rndme/download/v4.4.3/download.js"></script> -->

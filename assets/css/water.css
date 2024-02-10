@@ -1,0 +1,132 @@
+.water_container {
+    height: 100vh;
+    background-color: #164f7e;
+    background-image: url("/assets/img/water.jpg");
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    position: relative;
+    margin-top:120px
+  }
+  .background::after {
+    position: absolute;
+    content: "";
+    top: 20px;
+    left: 50%;
+    margin-left: -250px;
+    width: 500px;
+    height: 87vh;
+    padding: 30px 0;
+    background-color: #000;
+    border-radius: 15px;
+    opacity: 0.6;
+    z-index: -2;
+  }
+  
+  .water_container h1 {
+    
+    margin: 40px 0 0;
+    font-size: 2.5rem;
+  }
+  
+  .water_container h3 {
+    font-weight: 600;
+    color: rgb(252, 185, 1);
+    margin: 10px 0;
+    text-shadow: 6px 6px 10px rgba(0, 0, 0, 1);
+  }
+  
+  .cup {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 2px solid var(--border-color);
+    border-top: 0;
+    color: #24315c;
+    border-radius: 0 0 40px 40px;
+    height: 330px;
+    width: 150px;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .cup.cup-small {
+    height: 95px;
+    width: 50px;
+    border-radius: 0 0 15px 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    transition: 0.3s ease;
+  }
+  
+  .cup.cup-small.full {
+    background-color: rgba(22, 58, 126, 0.6);
+    color: #fff;
+  }
+  
+  .cups {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    user-select: none;
+    margin-bottom: 10px;
+  }
+  
+  .remained {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    transition: 0.3s ease;
+  }
+  
+  .remained span {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .remained small {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .percentage {
+    background-color: rgba(0, 27, 77, 0.7);
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    height: 0;
+    transition: 0.3s ease;
+  }
+  
+  .text-remained {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 0 0 30px;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: 6px 6px 10px rgba(0, 0, 0, 1);
+  }
+  

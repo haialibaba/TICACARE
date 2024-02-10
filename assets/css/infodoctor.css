@@ -1,0 +1,178 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#doctors{
+    margin-top: 100px;
+}
+.container .display-detail{
+    display: flex;
+    flex-direction: column;
+}
+.show-detail{
+    overflow: hidden;
+}
+.doctor-details {
+    display: flex;
+    flex-direction: column;
+}
+.doctor-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.title{
+    margin: 0 !important;
+    border: 0 !important;
+    padding: 20px;
+} 
+.info-content .row{
+    display: flex;
+    flex-direction: row;
+}
+.doctor-info {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.doctor-info img {
+    width: 20%;
+    border-radius: 200px;
+    flex: 0 0 auto; 
+    margin-right: 20px;
+}
+.navbar-info{
+    
+    width: 100%;
+    padding: 0;
+}
+.introduce{
+    border: 1px solid #ccc;
+}
+.infomation{
+    flex: 1 1 auto;
+}
+
+.doctor-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 0 !important;
+    border-top: 1px solid #ccc;
+}
+#doctor-button button{
+    margin: 0px 10px;
+    padding: 10px;
+    background-color: #fff;
+    color: black;
+    border-radius: 0;
+    font-size: 15px;
+}
+
+.dock{
+    border-bottom: 5px solid cornflowerblue !important;
+}
+
+#tab-1, #tab-2{
+    display: none;
+}
+.content-info{
+    display: block;
+}
+.topic{
+    padding: 5px;
+    border-bottom: 1px solid #cccc;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.topic h4{
+    margin: 0 !important;
+}
+
+.topic i{
+    padding: 0 10px;
+    color: palevioletred;
+}
+.topic .btn-show{
+    cursor: pointer;
+    margin-left: auto;
+    color: black;
+}
+.content-info{
+    padding: 20px;
+}
+
+#userReviews{
+    height: 500px;
+    overflow-y: auto;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #d6d4d4 #eee; /* Firefox */
+}
+#userReviews::-webkit-scrollbar {
+    width: 6px; /* Width of the entire scrollbar */
+}
+
+#userReviews::-webkit-scrollbar-thumb {
+    background-color: #d6d4d4; /* Color of the thumb */
+    border-radius: 10px; /* Radius of the thumb */
+}
+
+#userReviews::-webkit-scrollbar-track {
+    background-color: #eee; /* Color of the track */
+    border-radius: 10px; /* Radius of the track */
+}
+/* CSS cho thẻ li */
+.comment {
+    list-style-type: none;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.comment img {
+    width: 10%;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.comment h4 {
+    margin: 0;
+    color: #333;
+    font-size: 15px;
+}
+
+.comment .user-info {
+    flex-grow: 1;
+}
+
+.comment .stars-container {
+    display: flex;
+    align-items: center;
+}
+
+.comment .stars {
+    color: gold;
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+.comment p {
+    margin: 0;
+    color: #555;
+}
+.detail-review{
+    display: flex;
+    flex-direction: row;
+    flex-direction: row;
+    align-items: center;
+}
